@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link href="css/fonts.css" rel="stylesheet" />
+    <link href="css/styles.css" rel="stylesheet" />
+    <script src="Scripts/jquery-2.0.3.js"></script>
+    <script src="Scripts/knockout-2.3.0.js"></script>
+    <script type="text/javascript">
+        
+    </script>
+</head>
+<body>
+    <div>
+        <h2>using Knockout</h2>
+        <span class="caption">Employee name: </span><span id="empName" data-bind="text: empName" class="text"></span><br />
+        <span class="caption">Employee Salary: </span><input id="empSal" data-bind="value: empSal" class="text" /><br />
+        <span class="caption">Employee Designation: </span><input id="empoyeeDesignation" data-bind="value: empDesignation" class="text" /><br />
+        <input type="button" data-bind="click: saveToJson" value="Save to JSON" />
+        <textarea style="width:500px; height:100px" id="result" class="text" ></textarea>
+    </div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            // viewmodel
+            var employee = {
+                empName: "Jaideep T",
+                empSal: "9999999",
+                empDesignation: "Technical Manager"
+            };
+            employee.saveToJson = function ()
+            {
+                var jsonData = ko.toJSON(employee);                
+                $("#result").text(jsonData);
+            };
+            // initializa the bindings
+            ko.applyBindings(employee);
+        });
+    </script>
+
+</body>
+
+</html>

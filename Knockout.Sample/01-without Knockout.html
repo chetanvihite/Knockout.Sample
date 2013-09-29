@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link href="css/fonts.css" rel="stylesheet" />
+    <link href="css/styles.css" rel="stylesheet" />
+    <script src="Scripts/jquery-2.0.3.js"></script>
+    <script src="Scripts/knockout-2.3.0.js"></script>
+    <script type="text/javascript">
+        
+    </script>
+</head>
+<body>
+    <div>
+        <h2>Without Knockout</h2>
+        <span class="caption">Employee name: </span><span id="empName" class="text"></span><br />
+        <span class="caption">Employee Salary: </span><input id="empSal" class="text" /><br />
+        <span class="caption">Employee Designation: </span><input id="empoyeeDesignation" class="text" />
+    </div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            // Note: it is likely that you would get your object from some
+            // web service, but we'll mock it for simplicity.
+            var employee = {
+                empName: "Jaideep T",
+                empSal: "9999999",
+                empDesignation: "Technical Manager"
+            };
+            //Note: Manually push values from the source to the targets
+            // We'll use jQuery for simplicity, but its not required
+            $("#empName").text(employee.empName);
+            $("#empSal").val(employee.empSal);
+            $("#empoyeeDesignation").val(employee.empDesignation);
+
+        });
+    </script>
+
+</body>
+
+</html>

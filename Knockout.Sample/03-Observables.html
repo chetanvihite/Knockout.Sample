@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link href="css/fonts.css" rel="stylesheet" />
+    <link href="css/styles.css" rel="stylesheet" />
+    <script src="Scripts/jquery-2.0.3.js"></script>
+    <script src="Scripts/knockout-2.3.0.js"></script>
+    <script type="text/javascript">
+        
+    </script>
+</head>
+<body>
+    <div>
+        <h2>Observables in Knockout</h2>
+        <span class="caption">First name: </span><input data-bind="value: firstName, valueUpdate: 'afterkeydown'" class="text"/><br />
+            <span class="caption">last name: </span><input data-bind="value: lastName, valueUpdate: 'afterkeydown'" class="text" /><br />
+        <span class="caption" data-bind="text: fullName" ></span>
+    </div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            // viewmodel
+            var viewModel = {
+                
+                firstName: ko.observable("digital"),
+                lastName: ko.observable("group")                
+            };
+            viewModel.fullName = ko.computed(function () {
+                return "Hello " + viewModel.firstName() + " " + viewModel.lastName() + "!";
+            });
+            // initializa the bindings
+            ko.applyBindings(viewModel);
+        });
+    </script>
+
+</body>
+
+</html>
